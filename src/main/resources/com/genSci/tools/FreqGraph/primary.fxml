@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genSci.tools.FreqGraph.PrimaryController">
-   <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genSci.tools.FreqGraph.PrimaryController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="600.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#execAction" text="Drapw" />
+          <Button mnemonicParsing="false" onAction="#execAction" text="作成" />
             <Label text="階級幅" />
-            <TextField fx:id="classWidth" />
+            <TextField fx:id="classWidth" prefHeight="25.0" prefWidth="50.0" text="10" />
+            <Label text="最小値" />
+            <TextField fx:id="classMin" prefHeight="25.0" prefWidth="32.0" text="0" />
+            <Label layoutX="148.0" layoutY="17.0" text="最大値" />
+            <TextField fx:id="classMax" layoutX="188.0" layoutY="13.0" prefHeight="25.0" prefWidth="47.0" text="100" />
+            <Button mnemonicParsing="false" onAction="#clearData" text="clear:data" />
+            <Button mnemonicParsing="false" onAction="#clearLog" text="clear:Log" />
             <Button mnemonicParsing="false" onAction="#quitAction" text="Quit" />
         </items>
       </ToolBar>
-   </top>
-   <left>
-      <TextArea fx:id="dataArea" prefHeight="315.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
-   </left>
-   <center>
-      <Canvas fx:id="canvas" height="313.0" width="395.0" BorderPane.alignment="CENTER" />
-   </center>
-   <bottom>
-      <TextArea fx:id="log" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <right>
-      <TextArea fx:id="rihtLog" prefHeight="315.0" prefWidth="96.0" BorderPane.alignment="CENTER" />
-   </right>
-</BorderPane>
+      <HBox layoutY="40.0" prefHeight="360.0" prefWidth="600.0">
+         <children>
+            <TextArea fx:id="dataArea" prefHeight="360.0" prefWidth="106.0" />
+            <Pane fx:id="viewPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="360.0" prefWidth="360.0" />
+            <TextArea fx:id="rightLog" prefHeight="360.0" prefWidth="147.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
